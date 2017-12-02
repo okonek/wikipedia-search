@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Wikipedia Search</title>
+    <script src="index.js" defer></script>
 </head>
 <body>
 
+    <header>Wikipedia Search</header>
+
+    <main id="main">
+        <form id="search-form">
+            <p>
+                <label for="search-query">
+                    <span>Enter search query: </span>
+                </label>
+                <input type="text" id="search-query"/>
+            </p>
+            <p>
+                <button type="submit">Search</button>
+            </p>
+        </form>
+
+        <ul id="results-list">
+
+        </ul>
+    </main>
+
+    <footer>Copyright Jan Okoński</footer>
 </body>
 </html>
