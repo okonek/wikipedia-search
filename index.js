@@ -2,6 +2,7 @@ const API_URL = "https://en.wikipedia.org/w/api.php";
 const searchForm = document.getElementById("search-form");
 const resultsList = document.getElementById("results-list");
 const main = document.getElementById("main");
+const noResultsErrorElement = createNoResultsElement();
 
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -32,8 +33,12 @@ function parseApiCallResponse(response) {
     const titles = result[1];
     const links = result[3];
 
+    if(noResultsErrorElement.parentNode) {
+        noResultsErrorElement.parentNode.removeChild(noResultsErrorElement);
+    }
+
     if(titles.length === 0 ) {
-        main.appendChild(createNoResultsElement());
+        main.appendChild(noResultsErrorElement);
     }
     else {
         while (resultsList.firstChild) {
